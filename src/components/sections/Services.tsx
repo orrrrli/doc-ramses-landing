@@ -1,98 +1,114 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
+import { ArrowUpRight } from "lucide-react";
+
+const URW = "font-[family-name:var(--font-urw)]";
 
 interface Service {
   icon: string;
   title: string;
   desc: string;
-  tags: string[];
 }
 
 const SERVICES: Service[] = [
   {
-    icon: "💉",
+    icon: "/icons/servicios-icons/syringe.svg",
     title: "Manejo de Diabetes Tipo 1",
-    desc: "Consulta especializada para pacientes con DM1. Ajuste de dosis de insulina, educación en conteo de carbohidratos, manejo de hipoglucemias e hiperglucemias.",
-    tags: ["Insulinoterapia", "Hidratos de carbono", "HbA1c"],
+    desc: "Ajuste de dosis de insulina, conteo de carbohidratos y manejo de hipoglucemias e hiperglucemias.",
   },
   {
-    icon: "🩸",
+    icon: "/icons/servicios-icons/diabetes.svg",
     title: "Control de Diabetes Tipo 2",
-    desc: "Diagnóstico, tratamiento farmacológico y no farmacológico de DM2. Plan de alimentación, actividad física y seguimiento metabólico.",
-    tags: ["Hipoglucemiantes", "Nutrición", "Prevención"],
+    desc: "Tratamiento farmacológico y no farmacológico, plan de alimentación y seguimiento metabólico.",
   },
   {
-    icon: "🫀",
+    icon: "/hero-bg-icons/heart-cardiogram.svg",
     title: "Riesgo Cardiovascular",
-    desc: "Evaluación y manejo del riesgo cardiovascular en pacientes diabéticos. Control de presión arterial, lípidos y función renal.",
-    tags: ["Hipertensión", "Dislipidemia", "Nefropatía"],
+    desc: "Evaluación y manejo del riesgo cardiovascular. Control de presión arterial, lípidos y función renal.",
   },
   {
-    icon: "📋",
+    icon: "/hero-bg-icons/clinical-fe.svg",
     title: "Consulta General",
-    desc: "Atención médica general, diagnóstico y tratamiento de enfermedades agudas y crónicas. Medicina preventiva y chequeos periódicos.",
-    tags: ["Check-up", "Preventiva", "Crónicas"],
+    desc: "Diagnóstico y tratamiento de enfermedades agudas y crónicas. Medicina preventiva y chequeos periódicos.",
   },
   {
-    icon: "🧠",
+    icon: "/icons/servicios-icons/register-book.svg",
     title: "Educación Diabetológica",
-    desc: "Sesiones educativas individuales para aprender a vivir bien con diabetes. Conteo de carbohidratos, uso del glucómetro, prevención de complicaciones.",
-    tags: ["Autocuidado", "Glucómetro", "Pie diabético"],
+    desc: "Aprenda a vivir bien con diabetes: glucómetro, conteo de carbohidratos y prevención de complicaciones.",
   },
   {
-    icon: "👨‍👩‍👧",
+    icon: "/icons/servicios-icons/people.svg",
     title: "Seguimiento Familiar",
-    desc: "Atención médica continua para toda la familia. Orientación a familiares de pacientes diabéticos para apoyar el cuidado en casa.",
-    tags: ["Todas las edades", "Familia", "Seguimiento"],
+    desc: "Orientación continua para toda la familia, apoyando el cuidado del paciente en casa.",
   },
 ];
 
-export function Services(): React.JSX.Element {
+function ServiceCard({ service, featured = false }: { service: Service; featured?: boolean }): React.JSX.Element {
   return (
-    <section id="servicios" className="bg-white py-20 px-[5%]">
-      <div className="max-w-[1100px] mx-auto">
-        <p className="text-[0.72rem] font-bold tracking-[2px] uppercase text-[#008e76] mb-2">
-          Lo que ofrezco
-        </p>
-        <h2 className="font-[family-name:var(--font-playfair)] text-[clamp(1.6rem,3vw,2.4rem)] font-bold text-[#1e2a3a] leading-tight mb-4">
-          Servicios médicos
-        </h2>
-        <div className="w-12 h-1 bg-gradient-to-r from-[#00bfa5] to-[#008e76] rounded-full mb-4" />
-        <p className="text-[1rem] text-[#4a5568] leading-[1.7] max-w-[560px] mb-9">
-          Atención integral para el manejo de la diabetes y enfermedades crónicas en todas las
-          etapas de la vida.
-        </p>
+    <a
+      href="#contacto-page"
+      className={cn(
+        "group bg-white rounded-2xl p-6 flex flex-col gap-4 no-underline transition-all duration-200",
+        "hover:-translate-y-1 hover:shadow-[0_8px_28px_rgba(0,191,165,0.14)]",
+        featured
+          ? "border-2 border-[#00bfa5] shadow-[0_4px_16px_rgba(0,191,165,0.12)]"
+          : "border border-[#e8f0f0]",
+      )}
+    >
+      <img src={service.icon} alt="" className="w-10 h-10 service-icon" />
+      <div>
+        <h3 className={cn(URW, "text-[1rem] font-bold text-[#1e2a3a] mb-1.5 leading-snug")}>
+          {service.title}
+        </h3>
+        <p className="text-[0.85rem] text-[#4a5568] leading-[1.6]">{service.desc}</p>
+      </div>
+      <span className={cn(
+        URW,
+        "mt-auto inline-flex items-center gap-1 text-[0.8rem] font-bold transition-colors",
+        featured ? "text-[#00bfa5]" : "text-[#008e76]/60 group-hover:text-[#00bfa5]",
+      )}>
+        Saber más
+        <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+      </span>
+    </a>
+  );
+}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SERVICES.map((s) => (
-            <Card
-              key={s.title}
-              className="bg-[#f4f7fe] border border-[#dce6f7] rounded-[20px] hover:-translate-y-1 hover:shadow-[0_6px_24px_rgba(0,191,165,0.14)] hover:border-[#1a5cc8] transition-all duration-200"
-            >
-              <CardHeader className="pb-3">
-                <div className="w-[52px] h-[52px] bg-gradient-to-br from-[#1346a0] to-[#00bfa5] rounded-[14px] flex items-center justify-center text-[1.5rem] mb-4">
-                  {s.icon}
-                </div>
-                <CardTitle className="font-[family-name:var(--font-playfair)] text-[1.1rem] text-[#1e2a3a]">
-                  {s.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="pt-0 space-y-3">
-                <p className="text-[0.88rem] text-[#4a5568] leading-[1.65]">{s.desc}</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {s.tags.map((tag) => (
-                    <Badge
-                      key={tag}
-                      className="bg-[#e8f0fd] text-[#1346a0] rounded-[10px] text-[0.73rem] font-semibold hover:bg-[#e8f0fd]"
-                    >
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+export function Services(): React.JSX.Element {
+  const [top, bottom] = [SERVICES.slice(0, 2), SERVICES.slice(2)];
+
+  return (
+    <section id="servicios" className="bg-[#f8faf9] py-20 px-[5%] scroll-mt-20">
+      <div className="max-w-[1100px] mx-auto space-y-4">
+
+        {/* ── Top row: 2 cards left · text right ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+          {/* Left — 2 featured cards */}
+          <ServiceCard service={top[0]!} featured />
+          <ServiceCard service={top[1]!} />
+
+          {/* Right — heading block spanning 2 cols */}
+          <div className="sm:col-span-2 flex flex-col justify-center px-2 py-4 lg:py-0">
+            <p className={cn(URW, "text-[0.72rem] font-bold tracking-[2px] uppercase text-[#00bfa5] mb-3")}>
+              Lo que ofrezco
+            </p>
+            <h2 className={cn(URW, "text-[clamp(2rem,3.5vw,2.8rem)] font-black text-[#1e2a3a] leading-[1.1] mb-4")}>
+              Atención médica integral a tu medida
+            </h2>
+            <p className="text-[0.95rem] text-[#4a5568] leading-[1.75]">
+              Cada consulta es personalizada. Me comprometo a entender tu historia y diseñar
+              un tratamiento que se adapte a tu vida.
+            </p>
+          </div>
+        </div>
+
+        {/* ── Bottom row: 4 cards ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {bottom.map((s) => (
+            <ServiceCard key={s.title} service={s} />
           ))}
         </div>
+
       </div>
     </section>
   );

@@ -1,4 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
+
+const URW = "font-[family-name:var(--font-urw)]";
 
 interface SocialLink {
   name: string;
@@ -84,14 +87,14 @@ export function SocialMedia(): React.JSX.Element {
   return (
     <section
       id="redes-sociales"
-      className="bg-gradient-to-b from-[#f0fdfb] to-[#f4f7fe] py-20 px-[5%]"
+      className="bg-[#f0fdfb] py-20 px-[5%] scroll-mt-20"
     >
       <div className="max-w-[1100px] mx-auto">
         <div className="text-center mb-10">
-          <p className="text-[0.72rem] font-bold tracking-[2px] uppercase text-[#1346a0] mb-2">
+          <p className={cn(URW, "text-[0.72rem] font-bold tracking-[2px] uppercase text-[#008e76] mb-2")}>
             Sígueme en redes
           </p>
-          <h2 className="font-[family-name:var(--font-playfair)] text-[clamp(1.5rem,3vw,2.2rem)] font-bold text-[#1e2a3a] mb-4">
+          <h2 className={cn(URW, "text-[clamp(1.5rem,3vw,2.2rem)] font-black text-[#1e2a3a] mb-4")}>
             Información útil, sin tecnicismos
           </h2>
           <p className="text-[0.97rem] text-[#4a5568] max-w-[580px] mx-auto leading-[1.75]">

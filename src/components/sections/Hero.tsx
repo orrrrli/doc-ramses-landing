@@ -12,7 +12,7 @@ export function Hero(): React.JSX.Element {
   return (
     <section
       id="inicio"
-      className="bg-[#f8faf9] pt-[112px] px-[5%] relative overflow-hidden"
+      className="bg-[#f8faf9] pt-[80px] px-[5%] relative min-h-[calc(100vh-80px)] flex flex-col"
     >
 
       {/* ── Background icons ── */}
@@ -50,7 +50,7 @@ export function Hero(): React.JSX.Element {
       </div>
 
       {/* ── Desktop layout (md+) ── */}
-      <div className="hidden md:flex flex-col max-w-[1200px] mx-auto h-[670px] relative">
+      <div className="hidden md:flex flex-col max-w-[1200px] mx-auto flex-1 relative">
 
 {/* HEADING — full width, centered */}
         <div className="w-full text-center pt-4 pointer-events-none select-none animate-fade-up">
@@ -134,6 +134,9 @@ export function Hero(): React.JSX.Element {
         </p>
 
       </div>
+
+      {/* ── Bottom fade — dissolves into About section ── */}
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent to-[#f8faf9] pointer-events-none z-20" />
     </section>
   );
 }

@@ -1,23 +1,11 @@
 import type { Metadata } from "next";
-import { Playfair_Display, DM_Sans, Be_Vietnam_Pro } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import "./globals.css";
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  weight: ["400", "600", "700", "900"],
-});
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
-});
-
-const beVietnamPro = Be_Vietnam_Pro({
-  variable: "--font-be-vietnam",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -31,7 +19,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>): React.JSX.Element {
   return (
-    <html lang="es" className={`${playfair.variable} ${dmSans.variable} ${beVietnamPro.variable} scroll-smooth`}>
+    <html lang="es" className={`${dmSans.variable} scroll-smooth`}>
       <head>
         <link rel="preconnect" href="https://api.fontshare.com" />
         <link

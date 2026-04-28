@@ -1,23 +1,27 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
+import { Target, BookOpen, Shield, Microscope } from "lucide-react";
+
+const URW = "font-[family-name:var(--font-urw)]";
 
 const VALUES = [
   {
-    icon: "🎯",
+    icon: Target,
     title: "Enfoque personalizado",
     desc: "Cada paciente es único. El tratamiento se adapta a su vida, no al revés.",
   },
   {
-    icon: "📚",
+    icon: BookOpen,
     title: "Educación en salud",
     desc: "Explico con claridad para que usted entienda y participe en su cuidado.",
   },
   {
-    icon: "🤝",
+    icon: Shield,
     title: "Confianza y cercanía",
     desc: "Un ambiente sin juicios donde usted puede expresarse libremente.",
   },
   {
-    icon: "🔬",
+    icon: Microscope,
     title: "Medicina basada en evidencia",
     desc: "Tratamientos respaldados por las guías clínicas más actualizadas.",
   },
@@ -25,12 +29,12 @@ const VALUES = [
 
 export function About(): React.JSX.Element {
   return (
-    <section id="quien-soy" className="bg-[#f4f7fe] py-20 px-[5%]">
+    <section id="quien-soy" className="bg-[#f8faf9] py-20 px-[5%] scroll-mt-20">
       <div className="max-w-[1100px] mx-auto">
-        <p className="text-[0.72rem] font-bold tracking-[2px] uppercase text-[#008e76] mb-2">
+        <p className={cn(URW, "text-[0.72rem] font-bold tracking-[2px] uppercase text-[#008e76] mb-2")}>
           Quién soy
         </p>
-        <h2 className="font-[family-name:var(--font-playfair)] text-[clamp(1.6rem,3vw,2.4rem)] font-bold text-[#1e2a3a] leading-tight mb-4">
+        <h2 className={cn(URW, "text-[clamp(1.6rem,3vw,2.4rem)] font-black text-[#00bfa5] leading-tight mb-4")}>
           Un médico comprometido con su salud y bienestar
         </h2>
         <div className="w-12 h-1 bg-gradient-to-r from-[#00bfa5] to-[#008e76] rounded-full mb-8" />
@@ -49,18 +53,20 @@ export function About(): React.JSX.Element {
           </p>
         </div>
 
-        <blockquote className="bg-gradient-to-br from-[#1346a0] to-[#1a5cc8] text-white rounded-2xl px-6 py-5 mb-8 text-[1.05rem] leading-[1.6] italic">
+        <blockquote className="bg-gradient-to-br from-[#00bfa5] to-[#008e76] text-white rounded-2xl px-6 py-5 mb-8 text-[1.05rem] leading-[1.6] italic">
           &quot;Mi objetivo no es sólo tratar la enfermedad, sino acompañar a cada paciente para
           que comprenda su condición y viva con mayor calidad de vida.&quot;
         </blockquote>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-[14px]">
           {VALUES.map((v) => (
-            <Card key={v.title} className="border border-[#dce6f7] shadow-sm">
+            <Card key={v.title} className="border border-[#b2e0d8] shadow-sm bg-white">
               <CardContent className="flex gap-[10px] items-start p-[14px]">
-                <span className="text-[1.3rem] flex-shrink-0">{v.icon}</span>
+                <div className="w-8 h-8 rounded-[8px] bg-[#e0f7f4] flex items-center justify-center flex-shrink-0">
+                  <v.icon size={16} className="text-[#00bfa5]" />
+                </div>
                 <div className="text-[0.88rem] text-[#4a5568] leading-[1.4]">
-                  <strong className="block text-[#1e2a3a] font-semibold mb-0.5">{v.title}</strong>
+                  <strong className={cn(URW, "block text-[#1e2a3a] font-semibold mb-0.5")}>{v.title}</strong>
                   {v.desc}
                 </div>
               </CardContent>

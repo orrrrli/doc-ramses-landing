@@ -9,7 +9,7 @@ export function InkUnderline({ active }: InkUnderlineProps): React.JSX.Element {
       preserveAspectRatio="none"
       aria-hidden="true"
       className={`ink-underline${active ? " ink-active" : ""}`}
-      style={{ display: "block", width: "33%", height: "12px", transform: "rotate(3deg)", transformOrigin: "left center" }}
+      style={{ display: "block", width: "50%", height: "14px", transform: "rotate(3deg)", transformOrigin: "left center" }}
     >
       <defs>
         <filter id="ink-brush" x="-5%" y="-120%" width="110%" height="340%">
@@ -34,7 +34,7 @@ export function InkUnderline({ active }: InkUnderlineProps): React.JSX.Element {
           d="M 0,3.5 Q 50,3 100,4.5"
           fill="none"
           stroke="#00bfa5"
-          strokeWidth="1.4"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeOpacity="0.8"
           vectorEffect="non-scaling-stroke"
@@ -44,7 +44,7 @@ export function InkUnderline({ active }: InkUnderlineProps): React.JSX.Element {
           d="M 0,7.5 Q 55,7.5 100,9"
           fill="none"
           stroke="#00bfa5"
-          strokeWidth="1.1"
+          strokeWidth="1.6"
           strokeLinecap="round"
           strokeOpacity="0.45"
           vectorEffect="non-scaling-stroke"
