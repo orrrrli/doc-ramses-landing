@@ -12,48 +12,12 @@ import {
 const WA_LINK =
   "https://wa.me/5213121355297?text=Hola%20Dr.%20Ramses%2C%20quisiera%20agendar%20una%20cita";
 
-interface MenuSection {
-  label: string;
-  items: { icon: string; text: string; href: string }[];
-}
-
-const MENU_SECTIONS: MenuSection[] = [
-  {
-    label: "Conócenos",
-    items: [
-      { icon: "👨‍⚕️", text: "Quién soy", href: "#quien-soy" },
-      { icon: "🩺", text: "Servicios", href: "#servicios" },
-      { icon: "📍", text: "Contáctame", href: "#contacto-page" },
-    ],
-  },
-  {
-    label: "Portal del paciente",
-    items: [
-      { icon: "🔐", text: "Iniciar sesión", href: "/login" },
-    ],
-  },
-  {
-    label: "Herramientas",
-    items: [
-      { icon: "⚖️", text: "Calculadora IMC", href: "/tools/imc" },
-      { icon: "🔬", text: "Conversor HbA1c", href: "/tools/hba1c" },
-      { icon: "🩺", text: "Riesgo de diabetes", href: "/tools/diabetes-risk" },
-      { icon: "🫀", text: "Riesgo cardiovascular", href: "/tools/cardiovascular-risk" },
-      { icon: "🦶", text: "Neuropatía", href: "/tools/neuropathy" },
-      { icon: "🫘", text: "Filtración glomerular", href: "/tools/cockcroft" },
-    ],
-  },
-  {
-    label: "Consejos de salud",
-    items: [
-      { icon: "⚠️", text: "Hipoglucemia", href: "/advice/hypoglycemia" },
-      { icon: "🥗", text: "Alimentación", href: "/advice/nutrition" },
-      { icon: "🏃", text: "Ejercicio", href: "/advice/exercise" },
-      { icon: "🦶", text: "Pie diabético", href: "/advice/diabetic-foot" },
-      { icon: "💉", text: "Insulina", href: "/advice/insulin" },
-      { icon: "📱", text: "Monitoreo", href: "/advice/monitoring" },
-    ],
-  },
+const NAV_LINKS = [
+  { label: "Inicio",        href: "#inicio" },
+  { label: "Perfil Médico", href: "#perfil-medico" },
+  { label: "Mis Servicios", href: "#servicios" },
+  { label: "Enfermedades",  href: "#enfermedades" },
+  { label: "Contacto",      href: "#contacto" },
 ];
 
 export function SideMenu(): React.JSX.Element {
@@ -71,7 +35,7 @@ export function SideMenu(): React.JSX.Element {
       <SheetContent side="right" className="w-[300px] p-0 flex flex-col">
         <SheetHeader className="bg-gradient-to-br from-[#0a1f4a] to-[#006d5b] px-6 pt-7 pb-5 text-white">
           <Image
-            src="/logo_circulo.png"
+            src="/images/logo-circulo.png"
             alt="Logo"
             width={52}
             height={52}
@@ -85,24 +49,15 @@ export function SideMenu(): React.JSX.Element {
           </p>
         </SheetHeader>
 
-        <nav className="flex-1 overflow-y-auto py-3">
-          {MENU_SECTIONS.map((section) => (
-            <div key={section.label}>
-              <p className="text-[0.67rem] font-bold uppercase tracking-[1px] text-slate-400 px-6 pt-3 pb-1">
-                {section.label}
-              </p>
-              {section.items.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="flex items-center gap-[14px] px-6 py-[13px] text-[0.88rem] font-semibold text-[#1e2a3a] no-underline border-l-[3px] border-transparent hover:bg-[#f4f7fe] hover:border-l-[#1346a0] hover:text-[#1346a0] transition-all"
-                >
-                  <span className="w-[22px] text-center text-[1.1rem]">{item.icon}</span>
-                  {item.text}
-                </a>
-              ))}
-              <div className="h-px bg-[#f0f4f8] my-2 mx-0" />
-            </div>
+        <nav className="flex-1 py-4">
+          {NAV_LINKS.map(({ label, href }) => (
+            <a
+              key={href}
+              href={href}
+              className="flex items-center px-6 py-[14px] text-[0.92rem] font-semibold text-[#1e2a3a] no-underline border-l-[3px] border-transparent hover:bg-[#f4f7fe] hover:border-l-[#00bfa5] hover:text-[#00bfa5] transition-all"
+            >
+              {label}
+            </a>
           ))}
         </nav>
 
@@ -112,7 +67,7 @@ export function SideMenu(): React.JSX.Element {
           rel="noopener noreferrer"
           className="m-4 bg-gradient-to-br from-[#1346a0] to-[#1a5cc8] text-white rounded-[14px] py-[14px] text-center font-bold text-[0.9rem] no-underline block"
         >
-          📅 Agendar cita por WhatsApp
+          Agendar cita por WhatsApp
         </a>
       </SheetContent>
     </Sheet>

@@ -1,110 +1,138 @@
 import Image from "next/image";
 import { buttonVariants } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 
 const WA_LINK =
   "https://wa.me/5213121355297?text=Hola%20Dr.%20Ramses%2C%20quisiera%20agendar%20una%20cita";
 
-const SPECIALTY_TAGS = [
-  "💉 Insulinoterapia",
-  "🍽️ Hidratos de carbono",
-  "📊 Control glucémico",
-  "🫀 Prev. cardiovascular",
-];
+const URW = "font-[family-name:var(--font-urw)]";
 
 export function Hero(): React.JSX.Element {
   return (
     <section
       id="inicio"
-      className="min-h-screen bg-gradient-to-br from-[#0a1f4a] via-[#1346a0] to-[#006d5b] flex items-center pt-[90px] pb-16 px-[5%] relative overflow-hidden"
+      className="bg-[#f8faf9] pt-[112px] px-[5%] relative overflow-hidden"
     >
-      {/* Subtle cross pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}
-      />
-      <div className="absolute w-[520px] h-[520px] bg-[radial-gradient(circle,rgba(14,165,233,0.18),transparent_70%)] rounded-full top-[-100px] right-[-80px]" />
 
-      <div className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-[60px] items-center relative z-10 w-full">
-        {/* Left */}
-        <div>
-          <div className="inline-flex items-center gap-2 bg-white/12 border border-white/25 rounded-full px-4 py-1.5 text-[0.75rem] font-bold text-white/90 tracking-[1px] uppercase mb-5 animate-fade-up">
-            <span className="text-green-400 text-[0.6rem]">●</span>
-            Consultorio en Colima, Col.
-          </div>
+      {/* ── Background icons ── */}
+      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+        {/* top strip */}
+        <img src="/hero-bg-icons/stethoscope.svg"      className="hero-icon absolute top-[3%]   left-[2%]   w-9 opacity-[0.15] rotate-[-15deg]" alt="" />
+        <img src="/hero-bg-icons/biomarker.svg"        className="hero-icon absolute top-[2%]   left-[22%]  w-8 opacity-[0.12] rotate-[12deg]"  alt="" />
+        <img src="/hero-bg-icons/clinical-fe.svg"      className="hero-icon absolute top-[4%]   left-[44%]  w-8 opacity-[0.12] rotate-[-8deg]"  alt="" />
+        <img src="/hero-bg-icons/health.svg"           className="hero-icon absolute top-[3%]   left-[66%]  w-9 opacity-[0.15] rotate-[20deg]"  alt="" />
+        <img src="/hero-bg-icons/heart-cardiogram.svg" className="hero-icon absolute top-[2%]   left-[85%]  w-8 opacity-[0.12] rotate-[-18deg]" alt="" />
+        {/* upper-mid strip */}
+        <img src="/hero-bg-icons/heart-cardiogram.svg" className="hero-icon absolute top-[22%]  left-[6%]   w-8 opacity-[0.12] rotate-[25deg]"  alt="" />
+        <img src="/hero-bg-icons/health.svg"           className="hero-icon absolute top-[20%]  left-[28%]  w-9 opacity-[0.15] rotate-[-20deg]" alt="" />
+        <img src="/hero-bg-icons/stethoscope.svg"      className="hero-icon absolute top-[24%]  left-[52%]  w-8 opacity-[0.12] rotate-[14deg]"  alt="" />
+        <img src="/hero-bg-icons/biomarker.svg"        className="hero-icon absolute top-[20%]  left-[74%]  w-8 opacity-[0.12] rotate-[-25deg]" alt="" />
+        <img src="/hero-bg-icons/clinical-fe.svg"      className="hero-icon absolute top-[22%]  left-[92%]  w-8 opacity-[0.12] rotate-[30deg]"  alt="" />
+        {/* mid strip */}
+        <img src="/hero-bg-icons/clinical-fe.svg"      className="hero-icon absolute top-[44%]  left-[3%]   w-9 opacity-[0.15] rotate-[-10deg]" alt="" />
+        <img src="/hero-bg-icons/heart-cardiogram.svg" className="hero-icon absolute top-[42%]  left-[24%]  w-8 opacity-[0.12] rotate-[18deg]"  alt="" />
+        <img src="/hero-bg-icons/biomarker.svg"        className="hero-icon absolute top-[45%]  left-[48%]  w-8 opacity-[0.12] rotate-[-30deg]" alt="" />
+        <img src="/hero-bg-icons/stethoscope.svg"      className="hero-icon absolute top-[43%]  left-[70%]  w-9 opacity-[0.15] rotate-[22deg]"  alt="" />
+        <img src="/hero-bg-icons/health.svg"           className="hero-icon absolute top-[44%]  left-[90%]  w-8 opacity-[0.12] rotate-[-14deg]" alt="" />
+        {/* lower-mid strip */}
+        <img src="/hero-bg-icons/health.svg"           className="hero-icon absolute top-[64%]  left-[8%]   w-8 opacity-[0.12] rotate-[35deg]"  alt="" />
+        <img src="/hero-bg-icons/stethoscope.svg"      className="hero-icon absolute top-[62%]  left-[30%]  w-9 opacity-[0.15] rotate-[-18deg]" alt="" />
+        <img src="/hero-bg-icons/clinical-fe.svg"      className="hero-icon absolute top-[65%]  left-[55%]  w-8 opacity-[0.12] rotate-[10deg]"  alt="" />
+        <img src="/hero-bg-icons/heart-cardiogram.svg" className="hero-icon absolute top-[63%]  left-[78%]  w-8 opacity-[0.12] rotate-[-28deg]" alt="" />
+        <img src="/hero-bg-icons/biomarker.svg"        className="hero-icon absolute top-[64%]  left-[95%]  w-8 opacity-[0.12] rotate-[20deg]"  alt="" />
+        {/* bottom strip */}
+        <img src="/hero-bg-icons/biomarker.svg"        className="hero-icon absolute top-[84%]  left-[4%]   w-9 opacity-[0.15] rotate-[-22deg]" alt="" />
+        <img src="/hero-bg-icons/health.svg"           className="hero-icon absolute top-[82%]  left-[26%]  w-8 opacity-[0.12] rotate-[28deg]"  alt="" />
+        <img src="/hero-bg-icons/heart-cardiogram.svg" className="hero-icon absolute top-[85%]  left-[50%]  w-8 opacity-[0.12] rotate-[-12deg]" alt="" />
+        <img src="/hero-bg-icons/stethoscope.svg"      className="hero-icon absolute top-[83%]  left-[72%]  w-9 opacity-[0.15] rotate-[16deg]"  alt="" />
+        <img src="/hero-bg-icons/clinical-fe.svg"      className="hero-icon absolute top-[84%]  left-[90%]  w-8 opacity-[0.12] rotate-[-30deg]" alt="" />
+      </div>
 
-          <h1 className="font-[family-name:var(--font-playfair)] text-[clamp(2rem,4vw,3.2rem)] font-black text-white leading-tight mb-5 animate-fade-up animate-fade-up-d1">
-            Dr. Ramses Rodrigo
+      {/* ── Desktop layout (md+) ── */}
+      <div className="hidden md:flex flex-col max-w-[1200px] mx-auto h-[670px] relative">
+
+{/* HEADING — full width, centered */}
+        <div className="w-full text-center pt-4 pointer-events-none select-none animate-fade-up">
+          <h1 className={cn(URW, "text-[clamp(3.5rem,8vw,6.5rem)] font-black text-[#00bfa5] leading-[1.05] tracking-wide")}>
+            Date la oportunidad
             <br />
-            <em className="not-italic text-[#7dd3fc]">Castañeda Valenzuela</em>
+            <em className={cn("not-italic text-[#008e76] font-[850]")}>de vivir mejor.</em>
           </h1>
-
-          <p className="text-[1.05rem] text-white/80 leading-[1.7] mb-9 max-w-[480px] animate-fade-up animate-fade-up-d2">
-            Médico General y Diabetólogo con enfoque en el control integral de la diabetes y
-            enfermedades crónicas. Atención personalizada, educación en salud y acompañamiento
-            continuo para usted y su familia.
-          </p>
-
-          <div className="flex gap-[14px] flex-wrap animate-fade-up animate-fade-up-d3">
-            <a
-              href={WA_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(
-                buttonVariants({ variant: "default" }),
-                "bg-white text-[#1346a0] hover:bg-white/90 rounded-full px-7 py-[14px] h-auto font-bold text-[0.9rem] shadow-[0_4px_16px_rgba(0,0,0,0.15)] hover:-translate-y-0.5 transition-transform",
-              )}
-            >
-              <WhatsAppIcon className="w-4 h-4 mr-2" />
-              Agendar cita por WhatsApp
-            </a>
-            <a
-              href="/login"
-              className={cn(
-                buttonVariants({ variant: "outline" }),
-                "bg-white/12 text-white border-white/30 hover:bg-white/20 rounded-full px-7 py-[14px] h-auto font-semibold text-[0.9rem] hover:-translate-y-0.5 transition-transform",
-              )}
-            >
-              🔐 Iniciar sesión
-            </a>
-          </div>
         </div>
 
-        {/* Right — photo */}
-        <div className="flex flex-col items-center gap-[18px] animate-fade-up animate-fade-up-d1">
-          <div className="relative w-[280px] h-[280px]">
+        {/* PHOTO — absolutely centered, sits on top of heading */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10">
+          <div className="relative flex flex-col items-center">
+            {/* Glow behind doctor */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[420px] h-[420px] rounded-full bg-[#00bfa5]/20 blur-3xl -z-10" />
             <Image
-              src="/logo_circulo.png"
-              alt=""
-              fill
-              className="object-contain brightness-0 invert opacity-[0.15]"
-              aria-hidden
-            />
-            <Image
-              src="/perfil_-_Ramses.jpg"
+              src="/images/perfil-ramses2.png"
               alt="Dr. Ramses Castañeda"
-              width={280}
-              height={280}
-              className="w-[280px] h-[280px] rounded-full object-cover border-4 border-[rgba(0,191,165,0.6)] shadow-[0_20px_60px_rgba(0,0,0,0.35)] animate-pulse-ring"
+              width={284}
+              height={390}
+              className="relative z-10 w-[380px] h-[510px] object-cover object-top"
               priority
             />
           </div>
+        </div>
 
-          <div className="flex flex-wrap gap-2 justify-center">
-            {SPECIALTY_TAGS.map((tag) => (
-              <Badge
-                key={tag}
-                className="bg-[rgba(0,191,165,0.2)] border border-[rgba(0,191,165,0.4)] text-[#7dd3fc] rounded-full px-[14px] py-1 text-[0.78rem] font-semibold hover:bg-[rgba(0,191,165,0.3)]"
-              >
-                {tag}
-              </Badge>
-            ))}
+        {/* MIDDLE ROW — left stats | empty center (photo sits here) | right testimonial */}
+        <div className="flex-1 grid grid-cols-[1fr_300px_1fr] gap-x-10">
+          <div className="flex flex-col justify-end pb-16 gap-8 animate-fade-up">
+            <div>
+              <p className={cn(URW, "text-[3.8rem] font-black text-[#00bfa5] leading-none")}>+10</p>
+              <p className={cn(URW, "font-bold text-[#00bfa5]/55 text-[0.75rem] tracking-[2.5px] uppercase mt-1")}>
+                Años de experiencia
+              </p>
+            </div>
+            <div>
+              <p className={cn(URW, "text-[3.8rem] font-black text-[#00bfa5] leading-none")}>500+</p>
+              <p className={cn(URW, "font-bold text-[#00bfa5]/55 text-[0.75rem] tracking-[2.5px] uppercase mt-1")}>
+                Pacientes atendidos
+              </p>
+            </div>
+          </div>
+
+          {/* empty center column — photo sits above */}
+          <div />
+
+          <div className="flex flex-col justify-end items-end text-right pb-16 animate-fade-up">
+            <p className={cn(URW, "font-bold text-[#00bfa5] text-[1.1rem] leading-[1.4] max-w-[270px] mb-3")}>
+              Cada paciente es único, cada tratamiento también.
+            </p>
+            <p className={cn(URW, "font-light text-[#00bfa5]/70 text-[1.1rem] leading-[1.75] max-w-[270px]")}>
+              Cada persona llega con su historia<br />y sus metas. Tu tratamiento<br />se construye contigo, adaptado a ti.
+            </p>
           </div>
         </div>
+
+      </div>
+
+      {/* ── Mobile layout (< md) ── */}
+      <div className="flex md:hidden flex-col items-center text-center gap-6 pt-10 pb-16 relative z-10">
+        <h1 className={cn(URW, "text-[clamp(2.8rem,12vw,4rem)] font-black text-[#00bfa5] leading-[1.05] tracking-tight animate-fade-up")}>
+          Date la oportunidad
+          <br />
+          <em className="not-italic text-[#008e76] font-[850]">de vivir mejor.</em>
+        </h1>
+
+        <div className="relative flex flex-col items-center animate-fade-up animate-fade-up-d1">
+          <Image
+            src="/images/perfil-ramses2.png"
+            alt="Dr. Ramses Castañeda"
+            width={240}
+            height={320}
+            className="relative z-10 w-[240px] h-[320px] object-cover object-top shadow-[0_20px_60px_rgba(0,191,165,0.2)] "
+            priority
+          />
+        </div>
+
+        <p className={cn(URW, "font-light text-[#00bfa5]/70 text-[0.93rem] leading-[1.7] max-w-[320px] animate-fade-up animate-fade-up-d2")}>
+          Médico General y Diabetólogo con enfoque en el control integral de la diabetes.
+          Atención personalizada en Colima.
+        </p>
+
       </div>
     </section>
   );

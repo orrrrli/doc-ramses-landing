@@ -2,6 +2,67 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+@font-face {
+  font-family: 'URW Geometric';
+  src: url('/fonts/urw-geometric/URWGeometricThin.otf') format('opentype');
+  font-weight: 100;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'URW Geometric';
+  src: url('/fonts/urw-geometric/URWGeometricExtraLight.otf') format('opentype');
+  font-weight: 200;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'URW Geometric';
+  src: url('/fonts/urw-geometric/URWGeometricLight.otf') format('opentype');
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'URW Geometric';
+  src: url('/fonts/urw-geometric/URWGeometricRegular.otf') format('opentype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'URW Geometric';
+  src: url('/fonts/urw-geometric/URWGeometricMedium.otf') format('opentype');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'URW Geometric';
+  src: url('/fonts/urw-geometric/URWGeometricSemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'URW Geometric';
+  src: url('/fonts/urw-geometric/URWGeometricBold.otf') format('opentype');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'URW Geometric';
+  src: url('/fonts/urw-geometric/URWGeometricExtraBold.otf') format('opentype');
+  font-weight: 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'URW Geometric';
+  src: url('/fonts/urw-geometric/URWGeometricHeavy.otf') format('opentype');
+  font-weight: 850;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'URW Geometric';
+  src: url('/fonts/urw-geometric/URWGeometricBlack.otf') format('opentype');
+  font-weight: 900;
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -49,7 +110,7 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
+  --background: #f8faf9;
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -73,6 +134,8 @@
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
   --radius: 0.625rem;
+  --font-urw: 'URW Geometric', ui-sans-serif, system-ui, sans-serif;
+  --font-general-sans: 'General Sans', ui-sans-serif, system-ui, sans-serif;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -120,6 +183,8 @@
 @theme inline {
   --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-playfair), Georgia, serif;
+  --font-urw: 'URW Geometric', ui-sans-serif, system-ui, sans-serif;
+  --font-be-vietnam: var(--font-be-vietnam), ui-sans-serif, system-ui, sans-serif;
 
   /* Brand colors */
   --color-azul: #1346a0;
@@ -170,4 +235,20 @@
 
 .animate-pulse-ring {
   animation: pulseRing 3s infinite;
+}
+
+.hero-icon {
+  filter: invert(65%) sepia(87%) saturate(368%) hue-rotate(129deg) brightness(95%) contrast(91%);
+}
+
+.ink-underline .ink-line {
+  stroke-dasharray: 120;
+  stroke-dashoffset: 120;
+  transition: stroke-dashoffset 0.42s ease;
+}
+.ink-underline .ink-line-delay {
+  transition-delay: 0.07s;
+}
+.ink-underline.ink-active .ink-line {
+  stroke-dashoffset: 0;
 }
