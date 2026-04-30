@@ -29,15 +29,14 @@ const VALUES = [
 
 export function About(): React.JSX.Element {
   return (
-    <section id="quien-soy" className="bg-[#f8faf9] py-20 px-[5%] scroll-mt-20">
+    <section id="quien-soy" className="bg-[#f8faf9] py-20 px-[5%] scroll-mt-24">
       <div className="max-w-[1100px] mx-auto">
         <p className={cn(URW, "text-[0.72rem] font-bold tracking-[2px] uppercase text-[#008e76] mb-2")}>
           Quién soy
         </p>
-        <h2 className={cn(URW, "text-[clamp(1.6rem,3vw,2.4rem)] font-black text-[#00bfa5] leading-tight mb-4")}>
+        <h2 className={cn(URW, "text-[clamp(1.6rem,3vw,2.4rem)] font-black text-[#00bfa5] leading-tight mb-8")}>
           Un médico comprometido con su salud y bienestar
         </h2>
-        <div className="w-12 h-1 bg-gradient-to-r from-[#00bfa5] to-[#008e76] rounded-full mb-8" />
 
         <div className="space-y-[18px] text-[#4a5568] text-[1rem] leading-[1.8] mb-6">
           <p>
@@ -53,7 +52,7 @@ export function About(): React.JSX.Element {
           </p>
         </div>
 
-        <blockquote className="bg-gradient-to-br from-[#00bfa5] to-[#008e76] text-white rounded-2xl px-6 py-5 mb-8 text-[1.05rem] leading-[1.6] italic">
+        <blockquote className="border-l-4 border-[#00bfa5] bg-[#f0fdfb] text-[#1e2a3a] rounded-r-2xl px-6 py-5 mb-8 text-[1.05rem] leading-[1.6] italic">
           &quot;Mi objetivo no es sólo tratar la enfermedad, sino acompañar a cada paciente para
           que comprenda su condición y viva con mayor calidad de vida.&quot;
         </blockquote>

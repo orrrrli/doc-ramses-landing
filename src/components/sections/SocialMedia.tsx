@@ -87,7 +87,7 @@ export function SocialMedia(): React.JSX.Element {
   return (
     <section
       id="redes-sociales"
-      className="bg-[#f0fdfb] py-20 px-[5%] scroll-mt-20"
+      className="bg-[#f0fdfb] py-20 px-[5%] scroll-mt-24"
     >
       <div className="max-w-[1100px] mx-auto">
         <div className="text-center mb-10">

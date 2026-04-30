@@ -12,7 +12,7 @@ export function Hero(): React.JSX.Element {
   return (
     <section
       id="inicio"
-      className="bg-[#f8faf9] pt-[80px] px-[5%] relative min-h-[calc(100vh-80px)] flex flex-col"
+      className="bg-[#f8faf9] pt-[80px] px-[5%] relative min-h-[calc(100vh-80px)] flex flex-col overflow-hidden"
     >
 
       {/* ── Background icons ── */}

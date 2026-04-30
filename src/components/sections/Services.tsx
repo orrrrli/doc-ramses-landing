@@ -77,7 +77,7 @@ export function Services(): React.JSX.Element {
   const [top, bottom] = [SERVICES.slice(0, 2), SERVICES.slice(2)];
 
   return (
-    <section id="servicios" className="bg-[#f8faf9] py-20 px-[5%] scroll-mt-20">
+    <section id="servicios" className="bg-[#f8faf9] py-20 px-[5%] scroll-mt-24">
       <div className="max-w-[1100px] mx-auto space-y-4">
 
         {/* ── Top row: 2 cards left · text right ── */}

@@ -8,6 +8,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 
 const WA_LINK =
   "https://wa.me/5213121355297?text=Hola%20Dr.%20Ramses%2C%20quisiera%20agendar%20una%20cita";
@@ -16,7 +17,7 @@ const NAV_LINKS = [
   { label: "Inicio",        href: "#inicio" },
   { label: "Perfil Médico", href: "#quien-soy" },
   { label: "Mis Servicios", href: "#servicios" },
-  { label: "Enfermedades",  href: "#enfermedades" },
+  { label: "Herramientas",  href: "#mi-portal" },
   { label: "Contacto",      href: "#contacto" },
 ];
 
@@ -54,6 +55,14 @@ export function SideMenu(): React.JSX.Element {
             <a
               key={href}
               href={href}
+              onClick={(e) => {
+                e.preventDefault();
+                const el = document.querySelector(href);
+                if (el) {
+                  const y = el.getBoundingClientRect().top + window.scrollY - 80;
+                  window.scrollTo({ top: y, behavior: "smooth" });
+                }
+              }}
               className="flex items-center px-6 py-[14px] text-[0.92rem] font-semibold text-[#1e2a3a] no-underline border-l-[3px] border-transparent hover:bg-[#e0f7f4] hover:border-l-[#00bfa5] hover:text-[#00bfa5] transition-all font-[family-name:var(--font-urw)]"
             >
               {label}
@@ -65,8 +74,9 @@ export function SideMenu(): React.JSX.Element {
           href={WA_LINK}
           target="_blank"
           rel="noopener noreferrer"
-          className="m-4 bg-gradient-to-br from-[#00bfa5] to-[#008e76] text-white rounded-[14px] py-[14px] text-center font-bold text-[0.9rem] no-underline block font-[family-name:var(--font-urw)]"
+          className="m-4 bg-gradient-to-br from-[#00bfa5] to-[#008e76] text-white rounded-[14px] py-[14px] text-center font-bold text-[0.9rem] no-underline flex items-center justify-center gap-2 font-[family-name:var(--font-urw)]"
         >
+          <WhatsAppIcon className="w-5 h-5" />
           Agendar cita por WhatsApp
         </a>
       </SheetContent>

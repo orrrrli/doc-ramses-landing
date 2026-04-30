@@ -15,8 +15,8 @@ export default function Home(): React.JSX.Element {
         <Hero />
         <About />
         <Services />
-        <Portal />
         <SocialMedia />
+        <Portal />
         <Contact />
       </main>
       <Footer />
