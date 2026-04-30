@@ -55,14 +55,14 @@ export function Hero(): React.JSX.Element {
 {/* HEADING — full width, centered */}
         <div className="w-full text-center pt-4 pointer-events-none select-none animate-fade-up">
           <h1 className={cn(URW, "text-[clamp(3.5rem,8vw,6.5rem)] font-black text-[#00bfa5] leading-[1.05] tracking-wide")}>
-            Date la oportunidad
+            Vive mejor
             <br />
-            <em className={cn("not-italic text-[#008e76] font-[850]")}>de vivir mejor.</em>
+            <em className={cn("not-italic text-[#008e76] font-[850]")}>para quienes amas.</em>
           </h1>
         </div>
 
         {/* PHOTO — absolutely centered, sits on top of heading */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10">
+        <div className="absolute bottom-1 left-1/2 -translate-x-1/2 z-10 animate-fade-up animate-fade-up-d2">
           <div className="relative flex flex-col items-center">
             {/* Glow behind doctor */}
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[420px] h-[420px] rounded-full bg-[#00bfa5]/20 blur-3xl -z-10" />
