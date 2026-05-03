@@ -12,7 +12,7 @@ export function Hero(): React.JSX.Element {
   return (
     <section
       id="inicio"
-      className="bg-[#f8faf9] pt-[80px] px-[5%] relative min-h-[calc(100vh-80px)] flex flex-col overflow-hidden"
+      className="bg-[#f8faf9] md:pt-[80px] px-[5%] relative min-h-[calc(100vh-80px)] flex flex-col overflow-hidden"
     >
 
       {/* ── Background icons ── */}
@@ -112,9 +112,9 @@ export function Hero(): React.JSX.Element {
       {/* ── Mobile layout (< md) ── */}
       <div className="flex md:hidden flex-col items-center text-center gap-6 pt-10 pb-16 relative z-10">
         <h1 className={cn(URW, "text-[clamp(2.8rem,12vw,4rem)] font-black text-[#00bfa5] leading-[1.05] tracking-tight animate-fade-up")}>
-          Date la oportunidad
+          Vive mejor
           <br />
-          <em className="not-italic text-[#008e76] font-[850]">de vivir mejor.</em>
+          <em className="not-italic text-[#008e76] font-[850]">para quienes amas.</em>
         </h1>
 
         <div className="relative flex flex-col items-center animate-fade-up animate-fade-up-d1">
@@ -123,7 +123,7 @@ export function Hero(): React.JSX.Element {
             alt="Dr. Ramses Castañeda"
             width={240}
             height={320}
-            className="relative z-10 w-[240px] h-[320px] object-cover object-top shadow-[0_20px_60px_rgba(0,191,165,0.2)] "
+            className="relative z-10 w-[240px] h-[320px] object-cover object-top"
             priority
           />
         </div>
